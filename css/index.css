@@ -1,0 +1,209 @@
+:root {
+    --primary-color: #FF8C00;
+    --secondary-color: #f4f4f9;
+    --accent-color: #FF4500;
+    --text-color: #2f4f4f;
+    --badge-color: #ff1493;
+    --block-shadow: rgba(0, 0, 0, 0.2);
+    --hover-shadow: rgba(0, 0, 0, 0.3);
+    --input-background: rgba(255, 69, 0, 0.3);
+    --switch-background: #ccc;
+    --switch-checked: #ff4500;
+    --radio-background: #eee;
+    --radio-checked: #ff8c00;
+}
+
+body {
+    background-color: var(--secondary-color);
+    font-family: 'Volkhov', serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease;
+}
+
+.blocks {
+    background-color: white;
+    height: auto;
+    min-height: 200px;
+    height: 350px;
+    position: relative;
+    box-shadow: 0 10px 20px var(--block-shadow), 0 6px 6px var(--block-shadow);
+    margin: 18.5px;
+    border-radius: 15px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.blocks:hover {
+    box-shadow: 0 15px 30px var(--hover-shadow), 0 10px 10px var(--hover-shadow);
+    transform: translateY(-5px);
+}
+
+#mainpanel {
+    padding: 60px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 15px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.btn {
+    margin-top: 10px;
+    border-radius: 10px;
+    font-size: 25px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px var(--block-shadow);
+}
+
+.btn:hover {
+    background-color: #e03d00;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px var(--hover-shadow);
+}
+
+.btn:active {
+    background-color: #c13b00;
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px var(--block-shadow);
+}
+
+.btn:focus {
+    outline: none;
+}
+
+#gno {
+    border-radius: 50px;
+    width: 70%;
+}
+
+.badge {
+    font-size: 20px;
+    border-radius: 500px;
+    background-color: var(--badge-color);
+    color: white;
+    padding: 5px 10px;
+    box-shadow: 0 2px 5px var(--block-shadow);
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin: 10px 0;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--switch-background);
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--switch-checked);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--switch-checked);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    padding-right: 200px;
+    margin-left: 40%;
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+}
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: var(--radio-background);
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.container input:checked ~ .checkmark {
+    background-color: var(--radio-checked);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.container .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+.hbox {
+    margin-top: 2%;
+    right: 5%;
+}
